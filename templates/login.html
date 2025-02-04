@@ -10,7 +10,8 @@
             crossorigin="anonymous">
         <style>
             #form-body{
-                height: 337px;
+                width: 450px;
+                height: 420px;
             }
         </style>
     </head>
@@ -18,27 +19,29 @@
         <div id="main">
             <div id="canvas">
                 <div id="form-body">
-                    <h1>Login Form</h1>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1"
-                            class="form-label">Username</label>
-                        <input type="text" class="form-control"
-                            id="exampleFormControlInput1"
-                            placeholder="Enter username">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1"
-                            class="form-label">Password</label>
-                        <input type="password" class="form-control"
-                            id="exampleFormControlInput1"
-                            placeholder="Enter password">
-                    </div>
-                    <div style="text-align: center;">
-                        <button type="submit"
-                            class="btn btn-primary">Login</button> <br>
-                        Are you a new user? <a
-                            href="/templates/register.html">Register</a>
-                    </div>
+                    <h1>Welcome to Quiz Master</h1>
+                    <h2>Login Form</h2>
+                    <form action method="post">
+                        <div class="mb-3">
+                            <label for="Input1"
+                                class="form-label">Username (Email)</label>
+                            <input type="text" class="form-control"
+                                id="Input1"
+                                placeholder="Enter email id" name="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Input2"
+                                class="form-label">Password</label>
+                            <input type="password" class="form-control"
+                                id="Input2"
+                                placeholder="Enter password" name="pwd">
+                        </div>
+                        <div style="text-align: center;">
+                            <input type="submit"
+                                class="btn btn-primary" value="Login"><br>
+                            Are you a new user? <a href="">Register</a>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

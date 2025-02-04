@@ -8,39 +8,62 @@
             rel="stylesheet"
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
             crossorigin="anonymous">
+        <style>
+            #form-body {
+                width: 430px;
+                height: 660px;
+                margin-top: 50px;
+            }
+        </style>
     </head>
     <body>
         <div id="main">
             <div id="canvas">
                 <div id="form-body">
+                    <h1>Welcome to Quiz Master</h1>
                     <h2>New User Registration</h2>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1"
-                            class="form-label">Email ID</label>
-                        <input type="email" class="form-control"
-                            id="exampleFormControlInput1"
-                            placeholder="Enter email id">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1"
-                            class="form-label">Username</label>
-                        <input type="text" class="form-control"
-                            id="exampleFormControlInput1"
-                            placeholder="Enter username">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1"
-                            class="form-label">Password</label>
-                        <input type="password" class="form-control"
-                            id="exampleFormControlInput1"
-                            placeholder="Enter password">
-                    </div>
-                    <div style="text-align: center;">
-                        <button type="submit"
-                            class="btn btn-primary">Register</button> <br>
-                        Already registered? <a
-                            href="/templates/login.html">Login</a>
-                    </div>
+                    <form action method="post">
+                        <div class="mb-3">
+                            <label for="Input1"
+                                class="form-label">Username (Email)</label>
+                            <input type="email" class="form-control"
+                                id="Input1"
+                                placeholder="Enter email id" name="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Input2"
+                                class="form-label">Password</label>
+                            <input type="password" class="form-control"
+                                id="Input2"
+                                placeholder="Enter password" name="pwd">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Input3"
+                                class="form-label">Full Name</label>
+                            <input type="text" class="form-control"
+                                id="Input3"
+                                placeholder="Enter your name" name="fullname">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Input4"
+                                class="form-label">Qualification</label>
+                            <input type="text" class="form-control"
+                                id="Input4"
+                                placeholder="Enter your qualification" name="qualification">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Input5"
+                                class="form-label">Date of Birth</label>
+                            <input type="date" class="form-control"
+                                id="Input5"
+                                placeholder="Enter your date of birth" name="dob">
+                        </div>
+                        <div style="text-align: center;">
+                            <input type="submit"
+                                class="btn btn-primary" value="Register"><br>
+                            Already registered? <a href="">Login</a>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
