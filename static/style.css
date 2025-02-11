@@ -22,3 +22,37 @@
     border-radius: 5px;
     padding: 10px;
 }
+
+.headings {
+    margin: 3px;
+    padding-left: 5px;
+    margin-top: 30px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.form-group label {
+    display: inline-block;
+    width: 50%;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.form-group input {
+    width: calc(100% - 160px);
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #e9f7ff;
+    margin-right: 10px;
+}
+
+.quiz-title {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
