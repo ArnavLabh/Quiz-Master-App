@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Quiz Management</title>
+        <link rel="stylesheet" href="/static/style.css">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous">
+        <style>
+            #content {
+                margin-left: 50px;
+                margin-right: 50px;
+            }
+        </style>
+        <body>
+            <div id="main">
+                <div id="canvas">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="#">Welcome Admin</a>
+                            <button class="navbar-toggler" type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent"
+                                aria-controls="navbarSupportedContent"
+                                aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse"
+                                id="navbarSupportedContent">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                    <li class="nav-item">
+                                        <a class="nav-link active"
+                                            aria-current="page"
+                                            href="#">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Quizzes</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Summary</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Logout</a>
+                                    </li>
+
+                                </ul>
+                                <form class="d-flex">
+                                    <input class="form-control me-2"
+                                        type="search" placeholder="Search"
+                                        aria-label="Search">
+                                    <button class="btn btn-outline-success"
+                                        type="submit">Search</button>
+                                </form>
+                            </div>
+                        </div>
+                    </nav>
+                    <div id="content">
+                        <h3 class="text-center my-4">All Quizzes</h3>
+
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="card shadow-sm">
+                                    <div
+                                        class="card-header text-center fw-bold">Quiz1
+                                        (CSS)</div>
+                                    <div class="card-body">
+                                        <table
+                                            class="table table-bordered mb-3">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Q_Title</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Classes</td>
+                                                    <td><a href="#"
+                                                            class="btn btn-sm btn-warning">Edit</a>
+                                                        <a href="#"
+                                                            class="btn btn-sm btn-danger">Delete</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>Internal styles</td>
+                                                    <td><a href="#"
+                                                            class="btn btn-sm btn-warning">Edit</a>
+                                                        <a href="#"
+                                                            class="btn btn-sm btn-danger">Delete</a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <div
+                                            class="d-flex justify-content-center">
+                                            <button type="button"
+                                                class="btn btn-primary">+
+                                                Question</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card shadow-sm">
+                                    <div
+                                        class="card-header text-center fw-bold">Quiz2
+                                        (HTML)</div>
+                                    <div class="card-body">
+                                        <table
+                                            class="table table-bordered mb-3">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Q_Title</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>&lt;b&gt; element</td>
+                                                    <td><a href="#"
+                                                            class="btn btn-sm btn-warning">Edit</a>
+                                                        <a href="#"
+                                                            class="btn btn-sm btn-danger">Delete</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>&lt;h1&gt; element</td>
+                                                    <td><a href="#"
+                                                            class="btn btn-sm btn-warning">Edit</a>
+                                                        <a href="#"
+                                                            class="btn btn-sm btn-danger">Delete</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>&lt;form&gt;
+                                                        element</td>
+                                                    <td><a href="#"
+                                                            class="btn btn-sm btn-warning">Edit</a>
+                                                        <a href="#"
+                                                            class="btn btn-sm btn-danger">Delete</a></td>
+                                                </tr>
+
+                                            </tbody>
+
+                                        </table>
+                                        <div
+                                            class="d-flex justify-content-center">
+                                            <button type="button"
+                                                class="btn btn-primary">+
+                                                Question</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-primary"
+                                style="margin-top: 20px;">+ New Quiz</button>
+                        </div>
+                    </body>
+                </html>
