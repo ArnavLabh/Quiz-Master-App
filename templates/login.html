@@ -21,13 +21,13 @@
                 <div id="form-body">
                     <h1>Welcome to Quiz Master</h1>
                     <h2>Login Form</h2>
-                    <form action method="post">
+                    <form action="/login" method="post">
                         <div class="mb-3">
                             <label for="Input1"
-                                class="form-label">Username (Email)</label>
+                                class="form-label">Username</label>
                             <input type="text" class="form-control"
                                 id="Input1"
-                                placeholder="Enter email id" name="email">
+                                placeholder="Enter username" name="username">
                         </div>
                         <div class="mb-3">
                             <label for="Input2"
@@ -39,7 +39,7 @@
                         <div style="text-align: center;">
                             <input type="submit"
                                 class="btn btn-primary" value="Login"><br>
-                            Are you a new user? <a href="">Register</a>
+                            Are you a new user? <a href="/register">Register</a>
                         </div>
                     </form>
                 </div>

@@ -22,13 +22,13 @@
                 <div id="form-body">
                     <h1>Welcome to Quiz Master</h1>
                     <h2>New User Registration</h2>
-                    <form action method="post">
+                    <form action="/register" method="post">
                         <div class="mb-3">
                             <label for="Input1"
-                                class="form-label">Username (Email)</label>
-                            <input type="email" class="form-control"
+                                class="form-label">Username</label>
+                            <input type="text" class="form-control"
                                 id="Input1"
-                                placeholder="Enter email id" name="email">
+                                placeholder="Enter username" name="username">
                         </div>
                         <div class="mb-3">
                             <label for="Input2"
@@ -61,7 +61,7 @@
                         <div style="text-align: center;">
                             <input type="submit"
                                 class="btn btn-primary" value="Register"><br>
-                            Already registered? <a href="">Login</a>
+                            Already registered? <a href="/login">Login</a>
                         </div>
                     </form>
                 </div>
