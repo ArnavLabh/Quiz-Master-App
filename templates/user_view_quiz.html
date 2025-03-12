@@ -22,37 +22,38 @@
                     <form>
                         <div class="form-group">
                             <label for="quiz-id">ID:</label>
-                            <input id="quiz-id" type="text" value="xx" readonly>
+                            <input id="quiz-id" type="text" value="{{quiz.quiz_id}}" readonly>
                         </div>
                         <div class="form-group">
                             <label for="quiz-subject">Subject:</label>
                             <input id="quiz-subject" type="text"
-                                value="Mathematics" readonly>
+                                value="{{subject.name}}" readonly>
                         </div>
                         <div class="form-group">
                             <label for="quiz-chapter">Chapter:</label>
                             <input id="quiz-chapter" type="text"
-                                value="Random Variables" readonly>
+                                value="{{chapter.name}}" readonly>
                         </div>
                         <div class="form-group">
                             <label for="quiz-questions">Number of
                                 Questions:</label>
-                            <input id="quiz-questions" type="text" value="05"
+                            <input id="quiz-questions" type="text" value="{{questions|length}}"
                                 readonly>
                         </div>
                         <div class="form-group">
                             <label for="quiz-date">Scheduled Date:</label>
-                            <input id="quiz-date" type="text" value="dd/mm/yyyy"
+                            <input id="quiz-date" type="text" value="{{quiz.date}}"
                                 readonly>
                         </div>
                         <div class="form-group">
                             <label for="quiz-duration">Duration (hh:mm):</label>
-                            <input id="quiz-duration" type="text" value="00:10"
+                            <input id="quiz-duration" type="text" value="{{formatted_duration}}"
                                 readonly>
-                        </div>
+                        </div>  
                         <div class="d-flex justify-content-center">
-                            <button type="button"
-                                class="btn btn-primary">Close</button>
+                            <input type="button" class="btn btn-primary"
+                                value="Cancel"
+                                onclick="location.href='/user_dash/{{user.user_id}}'">
                         </div>
                     </form>
                 </div>

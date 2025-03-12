@@ -16,10 +16,11 @@
         </style>
         <body>
             <div id="main">
-                <div id="canvas">
+                <div id="canvas" class="overflow-auto">
                     <nav class="navbar navbar-expand-lg navbar-light bg-light">
                         <div class="container-fluid">
-                            <a class="navbar-brand" href="#">Welcome Admin</a>
+                            <a class="navbar-brand" href="#">Welcome
+                                Admin</a>
                             <button class="navbar-toggler" type="button"
                                 data-bs-toggle="collapse"
                                 data-bs-target="#navbarSupportedContent"
@@ -32,49 +33,69 @@
                                 id="navbarSupportedContent">
                                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                     <li class="nav-item">
+                                        <a class="nav-link"
+                                            href="/admin_dash">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                            href="/quizzes">Quizzes</a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a class="nav-link active"
-                                            aria-current="page"
-                                            href="#">Home</a>
+                                        aria-current="page"
+                                            href="/admin/summary">Summary</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Quizzes</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Summary</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Logout</a>
+                                        <a class="nav-link"
+                                            href="/login">Logout</a>
                                     </li>
 
                                 </ul>
-                                <form class="d-flex">
+                                <form class="d-flex" action="/results">
                                     <input class="form-control me-2"
                                         type="search" placeholder="Search"
-                                        aria-label="Search">
-                                    <button class="btn btn-outline-success"
-                                        type="submit">Search</button>
+                                        aria-label="Search" name="search">
+                                    <select class="form-select me-2"
+                                        aria-label="Default select example"
+                                        name="key">
+                                        <option selected>Select
+                                        </option>
+                                        <option value="user">User</option>
+                                        <option value="subject">Subject</option>
+                                        <option value="chapter">Chapter</option>
+                                        <option value="quiz">Quiz</option>
+                                    </select>
+                                    <input class="btn btn-outline-success"
+                                        type="submit" value="Search">
                                 </form>
                             </div>
                         </div>
                     </nav>
                     <div id="content">
-                        <h2>Summary Charts</h2>
+                        <h3 class="text-center my-4">Summary</h3>
                         <br>
-                        <div class="chart-container">
-                            <div class="chart">
-                                <h5>Subject wise no. of quizzes</h5>
-                                <img src="/static/bar_chart_2_placeholder.png"
-                                    alt="Bar Chart"
-                                    style="width: 30%; height: auto;">
+                        <div class="d-flex justify-content-around text-center" style="margin-top: 40px;">
+                            <div class="card bg-success p-3 ">
+                              <h5>Users</h5>
+                              <h1>{{users}}</h1>
                             </div>
-                            <br>
-                            <div class="chart">
-                                <h5>Month wise no. of quizzes attempted</h5>
-                                <img src="/static/pie_chart_2_placeholder.png"
-                                    alt="Pie Chart"
-                                    style="width: 30%; height: auto;">
+                            <div class="card bg-info p-3 ">
+                              <h5>Subjects</h5>
+                              <h1>{{subjects}}</h1>
                             </div>
-                        </div>
+                            <div class="card bg-warning p-3 ">
+                              <h5>Chapters</h5>
+                              <h1>{{chapters}}</h1>
+                            </div>
+                            <div class="card bg-info p-3 ">
+                                <h5>Quizzes</h5>
+                                <h1>{{quizzes}}</h1>
+                              </div>
+                              <div class="card bg-warning p-3 ">
+                                <h5>Questions</h5>
+                                <h1>{{questions}}</h1>
+                              </div> 
+                          </div>   
                     </div>
                 </body>
             </html>

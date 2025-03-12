@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Quiz Results</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="main">
+        <div id="canvas">
+            <div id="form-body" style="width: 600px; text-align: center; height: auto;">
+                <h2>Quiz Results</h2>
+                <div class="results-container">
+                    <h3>{{quiz.title}}</h3>
+                    <p>Your score: <strong>{{score}}/{{total_questions}}</strong></p>
+                    <p>Percentage: <strong>{{percentage|round(2)}}%</strong></p>
+                    
+                    <div class="mt-4">
+                        <a href="/user_dash/{{user.user_id}}" class="btn btn-primary">Back to Dashboard</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

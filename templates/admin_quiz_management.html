@@ -16,10 +16,11 @@
         </style>
         <body>
             <div id="main">
-                <div id="canvas">
+                <div id="canvas" class="overflow-auto">
                     <nav class="navbar navbar-expand-lg navbar-light bg-light">
                         <div class="container-fluid">
-                            <a class="navbar-brand" href="#">Welcome Admin</a>
+                            <a class="navbar-brand" href="#">Welcome
+                                Admin</a>
                             <button class="navbar-toggler" type="button"
                                 data-bs-toggle="collapse"
                                 data-bs-target="#navbarSupportedContent"
@@ -32,139 +33,123 @@
                                 id="navbarSupportedContent">
                                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                     <li class="nav-item">
+                                        <a class="nav-link"
+                                            href="/admin_dash">Home</a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a class="nav-link active"
                                             aria-current="page"
-                                            href="#">Home</a>
+                                            href="/quizzes">Quizzes</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Quizzes</a>
+                                        <a class="nav-link"
+                                            href="/admin/summary">Summary</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Summary</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Logout</a>
+                                        <a class="nav-link"
+                                            href="/login">Logout</a>
                                     </li>
 
                                 </ul>
-                                <form class="d-flex">
+                                <form class="d-flex" action="/results">
                                     <input class="form-control me-2"
                                         type="search" placeholder="Search"
-                                        aria-label="Search">
-                                    <button class="btn btn-outline-success"
-                                        type="submit">Search</button>
+                                        aria-label="Search" name="search">
+                                    <select class="form-select me-2"
+                                        aria-label="Default select example"
+                                        name="key" required>
+                                        <option selected>Select
+                                        </option>
+                                        <option value="user">User</option>
+                                        <option value="subject">Subject</option>
+                                        <option value="chapter">Chapter</option>
+                                        <option value="quiz">Quiz</option>
+                                    </select>
+                                    <input class="btn btn-outline-success"
+                                        type="submit" value="Search">
                                 </form>
                             </div>
                         </div>
                     </nav>
                     <div id="content">
                         <h3 class="text-center my-4">All Quizzes</h3>
-
                         <div class="row g-4">
-                            <div class="col-md-6">
-                                <div class="card shadow-sm">
+                            <div class="col-md-6 mb-4">
+                                {% for quiz in quizzes %}
+                                <div class="card shadow-sm border"
+                                    style="margin: 10px; text-align: center;">
                                     <div
-                                        class="card-header text-center fw-bold">Quiz1
-                                        (CSS)</div>
+                                        class="card-header text-center fw-bold bg-light">{{quiz.title}}</div>
                                     <div class="card-body">
                                         <table
                                             class="table table-bordered mb-3">
                                             <thead>
                                                 <tr>
-                                                    <th>ID</th>
-                                                    <th>Q_Title</th>
+                                                    <th>Question Title</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                {% for question in questions if
+                                                quiz.quiz_id ==
+                                                question.quiz_id %}
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>Classes</td>
-                                                    <td><a href="#"
-                                                            class="btn btn-sm btn-warning">Edit</a>
-                                                        <a href="#"
-                                                            class="btn btn-sm btn-danger">Delete</a></td>
+                                                    <td>{{question.question_title}}</td>
+                                                    <td class="text-center">
+                                                        <a
+                                                            href="/question/{{ question.question_id }}/edit"
+                                                            class="btn btn-sm btn-warning mx-1">Edit</a>
+                                                        <form
+                                                            action="/question/{{ question.question_id }}/delete"
+                                                            method="POST"
+                                                            style="display:inline;">
+                                                            <button
+                                                                type="submit"
+                                                                class="btn btn-sm btn-danger">Delete</button>
+                                                        </form>
+                                                    </td>
                                                 </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>Internal styles</td>
-                                                    <td><a href="#"
-                                                            class="btn btn-sm btn-warning">Edit</a>
-                                                        <a href="#"
-                                                            class="btn btn-sm btn-danger">Delete</a></td>
-                                                </tr>
+
+                                                {% endfor %}
                                             </tbody>
                                         </table>
 
                                         <div
                                             class="d-flex justify-content-center">
-                                            <button type="button"
-                                                class="btn btn-primary">+
-                                                Question</button>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="card shadow-sm">
-                                    <div
-                                        class="card-header text-center fw-bold">Quiz2
-                                        (HTML)</div>
-                                    <div class="card-body">
-                                        <table
-                                            class="table table-bordered mb-3">
-                                            <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Q_Title</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>&lt;b&gt; element</td>
-                                                    <td><a href="#"
-                                                            class="btn btn-sm btn-warning">Edit</a>
-                                                        <a href="#"
-                                                            class="btn btn-sm btn-danger">Delete</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>&lt;h1&gt; element</td>
-                                                    <td><a href="#"
-                                                            class="btn btn-sm btn-warning">Edit</a>
-                                                        <a href="#"
-                                                            class="btn btn-sm btn-danger">Delete</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td>&lt;form&gt;
-                                                        element</td>
-                                                    <td><a href="#"
-                                                            class="btn btn-sm btn-warning">Edit</a>
-                                                        <a href="#"
-                                                            class="btn btn-sm btn-danger">Delete</a></td>
-                                                </tr>
-
-                                            </tbody>
-
-                                        </table>
-                                        <div
-                                            class="d-flex justify-content-center">
-                                            <button type="button"
-                                                class="btn btn-primary">+
-                                                Question</button>
+                                            <a
+                                                href="/quiz/{{ quiz.quiz_id }}/edit"
+                                                class="btn btn-warning"
+                                                style="margin-right: 10px;">Edit</a>
+                                            <a
+                                                href="/quiz/{{ quiz.quiz_id}}/new_question"
+                                                class="btn btn-primary"
+                                                style="margin-right: 10px" ;>+
+                                                Question</a>
+                                            <form
+                                                action="/quiz/{{ quiz.quiz_id }}/delete"
+                                                method="POST"
+                                                style="display:inline;">
+                                                <button type="submit"
+                                                    class="btn btn-danger">Delete</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
+                                <br>
+                                {% endfor %}
+                            </div>
+                            <div class="d-flex justify-content-center">
+
                             </div>
                         </div>
-                        <div class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-primary"
-                                style="margin-top: 20px;">+ New Quiz</button>
-                        </div>
-                    </body>
-                </html>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <a
+                            href="/new_quiz"
+                            class="btn btn-primary"
+                            style="margin-top: 20px;">+ New Quiz</a>
+                    </div>
+                </div>
+            </div>
+        </body>
+    </html>

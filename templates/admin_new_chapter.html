@@ -17,7 +17,7 @@
     </head>
     <body>
         <div id="main">
-            <div id="canvas">
+            <div id="canvas" class="overflow-auto">
                 <div id="form-body">
                     <h2>New Chapter</h2>
                     <form action method="post">
@@ -31,13 +31,14 @@
                         <div class="mb-3">
                             <label for="Input2"
                                 class="form-label">Description</label>
-                            <textarea class="form-control" id="Input2"></textarea>
+                            <textarea class="form-control" id="Input2" name="chap_desc"></textarea>
                         </div>
                         <div style="text-align: center;">
                             <input type="submit"
                                 class="btn btn-primary" value="Save">
-                            <input type="submit"
-                                class="btn btn-primary" value="Cancel">
+                                <input type="button" class="btn btn-primary"
+                                value="Cancel"
+                                onclick="location.href='/admin_dash'">
                         </div>
                     </form>
                 </div>

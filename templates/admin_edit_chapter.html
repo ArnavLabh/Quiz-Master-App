@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Login Page</title>
+        <title>Edit Chapter</title>
         <link rel="stylesheet" href="/static/style.css">
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -10,8 +10,8 @@
             crossorigin="anonymous">
         <style>
             #form-body{
-                width: 450px;
-                height: 420px;
+                width: 300px;
+                height: auto;
             }
         </style>
     </head>
@@ -19,27 +19,27 @@
         <div id="main">
             <div id="canvas" class="overflow-auto">
                 <div id="form-body">
-                    <h1>Welcome to Quiz Master</h1>
-                    <h2>Login Form</h2>
-                    <form action="/login" method="post">
+                    <h2>Edit Chapter</h2>
+                    <form action method="post">
                         <div class="mb-3">
-                            <label for="Input1"
-                                class="form-label">Username</label>
+                            <label for="Input1" class="form-label">Name</label>
                             <input type="text" class="form-control"
-                                id="Input1"
-                                placeholder="Enter username" name="username">
+                                id="Input1" required
+                                value="{{chapter.name}}" name="chapter">
                         </div>
                         <div class="mb-3">
                             <label for="Input2"
-                                class="form-label">Password</label>
-                            <input type="password" class="form-control"
-                                id="Input2"
-                                placeholder="Enter password" name="pwd">
+                                class="form-label">Description</label>
+                            <textarea class="form-control" id="Input2"
+                                name="chap_desc"
+                                required>{{chapter.description}}</textarea>
                         </div>
                         <div style="text-align: center;">
                             <input type="submit"
-                                class="btn btn-primary" value="Login"><br>
-                            Are you a new user? <a href="/register">Register</a>
+                                class="btn btn-primary" value="Save">
+                            <input type="button" class="btn btn-primary"
+                                value="Cancel"
+                                onclick="location.href='/admin_dash'">
                         </div>
                     </form>
                 </div>

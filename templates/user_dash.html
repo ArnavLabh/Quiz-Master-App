@@ -28,26 +28,19 @@
                                     <li class="nav-item">
                                         <a class="nav-link active"
                                             aria-current="page"
-                                            href="#">Home</a>
+                                            href="/user_dash/{{user_id}}">Home</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Scores</a>
+                                        <a class="nav-link" href="/user/{{user_id}}/scores">Scores</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Summary</a>
+                                        <a class="nav-link" href="/user/{{user_id}}//summary">Summary</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="/login">Logout</a>
                                     </li>
 
                                 </ul>
-                                <form class="d-flex">
-                                    <input class="form-control me-2"
-                                        type="search" placeholder="Search"
-                                        aria-label="Search">
-                                    <button class="btn btn-outline-success"
-                                        type="submit">Search</button>
-                                </form>
                             </div>
                         </div>
                     </nav>
@@ -61,8 +54,7 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">ID</th>
-                                            <th scope="col">No. of
-                                                Questions</th>
+                                            <th scope="col">Quiz Title</th>
                                             <th scope="col">Date</th>
                                             <th scope="col">Duration
                                                 (hh:mm)</th>
@@ -71,45 +63,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        {% for quiz in quizzes %}
                                         <tr>
-                                            <th scope="row">1</th>
-                                            <td>10</td>
-                                            <td>10/02/2025</td>
-                                            <td>00:10</td>
+                                            <th scope="row">{{quiz.quiz_id}}</th>
+                                            <td>{{quiz.title}}</td>
+                                            <td>{{quiz.date}}</td>
+                                            <td>{{ '{:02d}:{:02d}'.format(quiz.duration // 3600, quiz.duration // 60) }}</td>
                                             <td
                                                 class="d-flex justify-content-center">
-                                                <a href type="button"
+                                                <a href="/quiz/{{quiz.quiz_id}}/view/{{user_id}}" type="button"
                                                     class="btn btn-primary mx-1">View</a>
-                                                <a href type="button"
-                                                    class="btn btn-success">Start</a>
+                                                    <a href="/quiz/{{quiz.quiz_id}}/start/{{user_id}}" type="button" class="btn btn-success">Start</a>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>15</td>
-                                            <td>12/02/2025</td>
-                                            <td>00:20</td>
-                                            <td
-                                                class="d-flex justify-content-center">
-                                                <a href type="button"
-                                                    class="btn btn-primary mx-1">View</a>
-                                                <a href type="button"
-                                                    class="btn btn-success">Start</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>50</td>
-                                            <td>01/02/2025</td>
-                                            <td>01:00</td>
-                                            <td
-                                                class="d-flex justify-content-center">
-                                                <a href type="button"
-                                                    class="btn btn-primary mx-1">View</a>
-                                                <a href type="button"
-                                                    class="btn btn-success">Start</a>
-                                            </td>
-                                        </tr>
+                                        {% endfor %}
                                     </tbody>
                                 </table>
                             </div>

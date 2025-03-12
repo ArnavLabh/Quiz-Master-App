@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Start the Quiz</title>
+        <title>Answer the Questions</title>
         <link rel="stylesheet" href="/static/style.css">
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -44,25 +44,31 @@
         <div id="main">
             <div id="canvas">
                 <div id="form-body">
-                    <div class="question-number">QNo. <span>3/15</span></div>
-                    <h2>Question Statement...</h2>
-                    <form action method="post">
+                    <div class="question-number">QNo.
+                        <span>{{current_number}}/{{total_questions}}</span></div>
+                    <h2>{{question.question_title}}</h2>
+                    <p>{{question.question_statement}}</p>
+                    <form
+                        action="/quiz/{{quiz_id}}/question/{{question.question_id}}/{{user_id}}"
+                        method="post">
                         <div class="question-container" margin-top="10px">
-                            <label><input type="radio" name="option" value="1">
-                                Option A</label><br>
-                            <label><input type="radio" name="option" value="2">
-                                Option B</label><br>
-                            <label><input type="radio" name="option" value="3">
-                                Option C</label><br>
-                            <label><input type="radio" name="option" value="4">
-                                Option D</label>
+                            <label><input type="radio" name="answer" value="1">
+                                {{question.option1}}</label><br>
+                            <label><input type="radio" name="answer" value="2">
+                                {{question.option2}}</label><br>
+                            <label><input type="radio" name="answer" value="3">
+                                {{question.option3}}</label><br>
+                            <label><input type="radio" name="answer" value="4">
+                                {{question.option4}}</label>
                         </div>
 
                         <div class="btn-container">
-                            <button type="button" class="btn btn-primary">Save
+                            <button type="submit" name="action"
+                                value="save_next" class="btn btn-primary">Save
                                 and Next</button>
-                            <button type="submit"
-                                class="btn btn-primary">Submit</button>
+                            <button type="submit" name="action"
+                                value="submit_quiz"
+                                class="btn btn-primary">Submit Quiz</button>
                         </div>
                     </form>
                 </div>

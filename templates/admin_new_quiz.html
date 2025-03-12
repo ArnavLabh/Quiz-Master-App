@@ -17,23 +17,27 @@
     </head>
     <body>
         <div id="main">
-            <div id="canvas">
+            <div id="canvas" class="overflow-auto">
                 <div id="form-body">
                     <h2>New Quiz</h2>
                     <form action method="post">
                         <div class="mb-3">
                             <label for="Input1"
-                                class="form-label">Chapter ID</label>
-                            <input type="text" class="form-control"
-                                id="Input1"
-                                placeholder="Enter Chapter ID" name="chap_id">
-                        </div>
+                                class="form-label">Chapter</label>
+                                <select class="form-select me-2" name="chapter_name">
+                                    <option selected>Select Chapter</option>
+                                    {% for chapter in chapters %}
+                                        <option value="{{ chapter.name }}">{{ chapter.name }}</option>
+                                    {% endfor %}
+                                </select>
+                                    
                         <div class="mb-3">
                             <label for="Input2"
                                 class="form-label">Quiz Title</label>
                             <input type="text" class="form-control"
                                 id="Input2"
-                                placeholder="Enter Quiz Title" name="quiz_title">
+                                placeholder="Enter Quiz Title"
+                                name="quiz_title">
                         </div>
                         <div class="mb-3">
                             <label for="Input3"
@@ -47,13 +51,15 @@
                                 class="form-label">Duration</label>
                             <input type="time" class="form-control"
                                 id="Input4"
-                                placeholder="Enter Quiz Duration" name="quiz_duration">
+                                placeholder="Enter Quiz Duration"
+                                name="quiz_duration">
                         </div>
                         <div style="text-align: center;">
                             <input type="submit"
                                 class="btn btn-primary" value="Save">
-                            <input type="submit"
-                                class="btn btn-primary" value="Cancel">
+                            <input type="button" class="btn btn-primary"
+                                value="Cancel"
+                                onclick="location.href='/quizzes'">
                         </div>
                     </form>
                 </div>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Edit Quiz</title>
+        <link rel="stylesheet" href="/static/style.css">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous">
+        <style>
+            #form-body {
+                width: 300px;
+                height: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <div id="canvas" class="overflow-auto">
+                <div id="form-body">
+                    <h2>Edit Quiz</h2>
+                    <form method="post">
+                        <div class="mb-3">
+                            <label for="chapterSelect"
+                                class="form-label">Chapter</label>
+                            <select class="form-select me-2" name="chapter_name"
+                                id="chapterSelect">
+                                {% for chapter in chapters %}
+                                <option value="{{ chapter.name }}"
+                                    {% if chapter.name == quiz.chapter.name
+                                    %}selected{% endif %}>
+                                    {{ chapter.name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Input2" class="form-label">Quiz
+                                Title</label>
+                            <input type="text" class="form-control" id="Input2"
+                                value="{{ quiz.title }}" name="quiz_title">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Input3" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="Input3"
+                                value="{{ quiz.date }}"
+                                name="quiz_date">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Input4"
+                                class="form-label">Duration</label>
+                            <input type="time" class="form-control" id="Input4"
+                                value="{{ '%02d:%02d' | format(quiz.duration // 3600, (quiz.duration % 3600) // 60) }}"
+                                name="quiz_duration">
+                        </div>
+                        <div style="text-align: center;">
+                            <input type="submit" class="btn btn-primary"
+                                value="Save">
+                            <input type="button" class="btn btn-primary"
+                                value="Cancel"
+                                onclick="location.href='/quizzes'">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
