@@ -10,13 +10,11 @@ class User(db.Model):
     date_of_birth = db.Column(db.Date(), nullable=False)
     type = db.Column(db.String(), default='general', nullable=False)
     scores = db.relationship('Score', backref='user')
-    subjects = db.relationship('Subject', backref='user')
 
 class Subject(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), unique=True, nullable=False)
     description = db.Column(db.String(), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     chapters = db.relationship('Chapter', backref='subject')
 
 class Chapter(db.Model):
