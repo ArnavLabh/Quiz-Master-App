@@ -51,5 +51,3 @@ class Score(db.Model):
     score = db.Column(db.Integer, nullable=False)
     date = db.Column(db.Date(), nullable=False)
     percentage = db.Column(db.Float(), nullable=False)
-    status = db.Column(db.String(), nullable=False)
-    remarks = db.Column(db.String(), nullable=False)

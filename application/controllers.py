@@ -344,7 +344,7 @@ def answer_question(quiz_id, question_id, user_id):
         score = Score.query.filter_by(user_id=user_id, quiz_id=quiz_id).first()
         if not score:
             score = Score(
-                user_id=user_id, quiz_id=quiz_id, score=0, date=date.today(), percentage=0.0, status="In Progress", remarks="Quiz started" )
+                user_id=user_id, quiz_id=quiz_id, score=0, date=date.today(), percentage=0.0)
             db.session.add(score)
 
         if selected_answer == question.correct_option:
