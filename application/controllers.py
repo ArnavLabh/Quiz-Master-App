@@ -217,6 +217,16 @@ def delete_question(question_id):
 
 # EDIT ROUTES
 
+@app.route('/subject/<int:subject_id>/edit', methods=['GET', 'POST'])
+def edit_subject(subject_id):
+    subject = Subject.query.get(subject_id)
+    if request.method == 'POST':
+        subject.name = request.form.get('subj_name')
+        subject.description = request.form.get('subj_description')
+        db.session.commit()
+        return redirect('/admin_dash')
+    return render_template('admin_edit_subject.html', subject=subject)
+
 @app.route('/chapter/<int:chapter_id>/edit', methods=['GET', 'POST'])
 def edit_chapter(chapter_id):
     chapter = Chapter.query.get(chapter_id)

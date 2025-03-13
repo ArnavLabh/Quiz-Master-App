@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Edit Chapter</title>
+        <title>Edit Subject</title>
         <link rel="stylesheet" href="/static/style.css">
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -19,20 +19,20 @@
         <div id="main">
             <div id="canvas" class="overflow-auto">
                 <div id="form-body">
-                    <h2>Edit Chapter</h2>
-                    <form action="/chapter/{{chapter.chapter_id}}/edit" method="post">
+                    <h2>Edit Subject</h2>
+                    <form action="/subject/{{subject.subject_id}}/edit" method="post">
                         <div class="mb-3">
                             <label for="Input1" class="form-label">Name</label>
                             <input type="text" class="form-control"
                                 id="Input1" required
-                                value="{{chapter.name}}" name="chapter">
+                                value="{{subject.name}}" name="subj_name">
                         </div>
                         <div class="mb-3">
                             <label for="Input2"
                                 class="form-label">Description</label>
                             <textarea class="form-control" id="Input2"
-                                name="chap_desc"
-                                required>{{chapter.description}}</textarea>
+                                name="subj_description"
+                                required>{{subject.description}}</textarea>
                         </div>
                         <div style="text-align: center;">
                             <input type="submit"
