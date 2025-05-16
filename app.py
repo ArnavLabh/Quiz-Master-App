@@ -1,13 +1,15 @@
 from flask import Flask
 from application.database import *
 import datetime
+import os
 
 app = None
 
 def create_app():
     app = Flask(__name__)
     app.debug = True
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///quiz_master_v1.sqlite3'
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///quiz_master_v1.sqlite3')
+    app.config['SECRET_KEY'] = os.getenv('FLASK_SECRET_KEY', 'default-secret-key')
     db.init_app(app)
     app.app_context().push()
     with app.app_context():
