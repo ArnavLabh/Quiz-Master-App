@@ -10,9 +10,10 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///quiz_master_v1.sqlite3'
     db.init_app(app)
     app.app_context().push()
-    from application import models
-    db.create_all()
-    create_default_admin()
+    with app.app_context():
+        from application import models
+        db.create_all()
+        create_default_admin()
     return app
 
 def create_default_admin():
